@@ -1,0 +1,23 @@
+<script>
+json = '{"url":"./data.json"}';
+
+let objet = eval('('+json+')');
+console.log(objet)
+
+if(typeof json!='undefined'){
+    console.log('ok')
+}
+
+fetch('./data.json').then(function(response) {
+    if(response.ok){
+        response.json().then(function(json) {
+            data = json;
+            console.log('ok')
+            console.log(data)
+            console.log(data['thumbnails'][0])
+        });
+    } else{
+        console.log('failed')
+    }
+})
+</script>
